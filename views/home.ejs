@@ -1,0 +1,20 @@
+<%- include("partials/header"); -%>
+
+  <h1>HOME</h1>
+  <div>
+    <p><%= hc %></p>
+  </div>
+  <div class="post-list">
+    <% post.forEach(function(val){ %>
+      <% const linktitle = val.title.replace(" ","-").toLowerCase(); %>
+      <% let messageslice = val.message.slice(0, 150) + "...."; %>
+      <a href="/posts/<%= linktitle %>"><h1><%= val.title %></h1></a>
+      <div>
+        <p><%= messageslice %> <a href="/posts/<%= linktitle %>">Read More</a></p>
+      </div>
+    <% }); %>
+  </div>
+  <div>
+    <a href="/compose">Compose</a>
+  </div>
+<%- include("partials/footer"); -%>
